@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+	<br />
+	<h1 class="ml-4">Test</h1>
+	<br />
+	<div class="col-md-3">
+		<select class="form-select form-select-sm ml-5 mb-2" id="select1">
+			<option selected disabled value="itemsperpage">-- Size --</option>
+			<option value="Theme1">Theme1</option>
+			<option value="Theme2">Theme2</option>
+			<option value="Theme3">Theme3</option>
+			<option value="Theme4">Theme4</option>
+			<option value="Theme5">Theme5</option>
+		</select>
+	</div>
+	<br />
+	<div class="col-md-3">
+		<select class="form-select form-select-sm ml-5 mb-2" id="select2">
+			<option selected disabled value="itemsperpage">-- Size --</option>
+			<option value="Theme1">Theme1</option>
+			<option value="Theme2">Theme2</option>
+			<option value="Theme3">Theme3</option>
+			<option value="Theme4">Theme4</option>
+			<option value="Theme5">Theme5</option>
+		</select>
+	</div>
+</body>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function() {
+		alert('DOM ready !');
+		checkCookie();
+		setCookie
+		function setCookie(name, value, daysToLive) {
+			// Encode value in order to escape semicolons, commas, and whitespace
+			var cookie = name + "=" + encodeURIComponent(value);
+
+			if (typeof daysToLive === "number") {
+				/* Sets the max-age attribute so that the cookie expires
+				after the specified number of days */
+				cookie += "; max-age=" + (daysToLive * 24 * 60 * 60);
+
+				document.cookie = cookie;
+			}
+		}
+
+		function getCookie(name) {
+			// Split cookie string and get all individual name=value pairs in an array
+			var cookieArr = document.cookie.split(";");
+
+			// Loop through the array elements
+			for (var i = 0; i < cookieArr.length; i++) {
+				var cookiePair = cookieArr[i].split("=");
+
+				/* Removing whitespace at the beginning of the cookie name
+				and compare it with the given string */
+				if (name == cookiePair[0].trim()) {
+					// Decode the cookie value and return
+					return decodeURIComponent(cookiePair[1]);
+				}
+			}
+
+			// Return null if not found
+			return null;
+		}
+
+		function checkCookie() {
+			// Get cookie using our custom function
+			var firstName = getCookie("firstName");
+
+			if (firstName != null) {
+				alert("Welcome again, " + firstName);
+			} else {
+				firstName = prompt("Please enter your first name:");
+				if (firstName != "" && firstName != null) {
+					// Set cookie using our custom function
+					setCookie("firstName", firstName, 1);
+				}
+			}
+		}
+
+	});
+</script>
+<script type="text/javascript">
+	document.addEventListener('input', function(event) {
+
+		// Only run on our select menu
+		if (event.target.id !== 'select1')
+			return;
+
+		// The selected value
+		alert("select1 value :: " + event.target.value);
+		console.log(event.target.value);
+
+		// The selected option element
+		alert(event.target.selectedIndex);
+		console.log(event.target.options[event.target.selectedIndex]);
+
+	}, false);
+</script>
+
+<script type="text/javascript">
+	document.getElementById("select2").onchange = function() {
+		alert("select2 value :: " + this.value);
+		console.log("Changed to ::" + event.target.value);
+		// console.log(event.target.value);
+	}
+</script>
+</html>
