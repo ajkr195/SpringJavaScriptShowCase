@@ -6,6 +6,21 @@
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 </head>
 <body>
+
+
+	<input type="button" class="ml-5 mb-2" onclick="CreateTableFromJSON()"
+		value="Create Table From JSON" />
+	<p class="table table-bordered table-striped" id="showData"></p>
+
+	<br />
+	<br />
+
+
+	<h1 id="title"></h1>
+	<br />
+	<div id="text"></div>
+
+	<br />
 	<br />
 	<h1 class="ml-4">Test</h1>
 	<br />
@@ -30,7 +45,24 @@
 			<option value="Theme5">Theme5</option>
 		</select>
 	</div>
+
+
 </body>
+
+
+
+
+<script type="text/javascript">
+
+let xhr = new XMLHttpRequest();
+xhr.open('get', '/api/userlist');
+xhr.send();
+
+xhr.onload = function() {
+    alert(xhr.response);
+};
+
+</script>
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", function() {
 		alert('DOM ready !');
@@ -111,4 +143,84 @@
 		// console.log(event.target.value);
 	}
 </script>
+
+<script>
+// 	var xhr = new XMLHttpRequest();
+
+// 	xhr.onreadystatechange = function() {
+// 		if (xhr.readyState == XMLHttpRequest.DONE) {
+// 			if (xhr.status == 200) {
+// 				document.body.innerText = 'Response: ' + xhr.responseText;
+// 			} else {
+// 				document.body.innerText = 'Error: ' + xhr.status;
+// 			}
+// 		}
+// 	};
+
+	//xhr.open('GET', '/api/userlist', true);
+	//xhr.open('GET', '/get/echo?text=hello', true);
+	//xhr.send(null);
+</script>
+
+<script>
+	function CreateTableFromJSON() {
+		var myBooks = [ {
+			"ID" : "1",
+			"Name" : "Test1",
+			"Category" : "Category1",
+			"Price" : "123"
+		}, {
+			"ID" : "2",
+			"Name" : "Test2",
+			"Category" : "Category2",
+			"Price" : "1234"
+		}, {
+			"ID" : "3",
+			"Name" : "Test3",
+			"Category" : "Category3",
+			"Price" : "12345"
+		} ]
+
+		// EXTRACT VALUE FOR HTML HEADER. 
+		// ('Book ID', 'Book Name', 'Category' and 'Price')
+		var col = [];
+		for (var i = 0; i < myBooks.length; i++) {
+			for ( var key in myBooks[i]) {
+				if (col.indexOf(key) === -1) {
+					col.push(key);
+				}
+			}
+		}
+
+		// CREATE DYNAMIC TABLE.
+		var table = document.createElement("table");
+
+		// CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+		var tr = table.insertRow(-1); // TABLE ROW.
+
+		for (var i = 0; i < col.length; i++) {
+			var th = document.createElement("th"); // TABLE HEADER.
+			th.innerHTML = col[i];
+			tr.appendChild(th);
+		}
+
+		// ADD JSON DATA TO THE TABLE AS ROWS.
+		for (var i = 0; i < myBooks.length; i++) {
+
+			tr = table.insertRow(-1);
+
+			for (var j = 0; j < col.length; j++) {
+				var tabCell = tr.insertCell(-1);
+				tabCell.innerHTML = myBooks[i][col[j]];
+			}
+		}
+
+		// FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+		var divContainer = document.getElementById("showData");
+		divContainer.innerHTML = "";
+		divContainer.appendChild(table);
+	}
+</script>
+
 </html>

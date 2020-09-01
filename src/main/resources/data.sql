@@ -1,0 +1,10 @@
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('1', 'user1', 'user1@mydomain.com', 'addressUser1');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('2', 'user2', 'user2@mydomain.com', 'addressUser2');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('3', 'user3', 'user3@mydomain.com', 'addressUser3');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('4', 'user4', 'user4@mydomain.com', 'addressUser4');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('5', 'user5', 'user5@mydomain.com', 'addressUser5');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('6', 'user6', 'user6@mydomain.com', 'addressUser6');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('7', 'user7', 'user7@mydomain.com', 'addressUser7');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('8', 'user8', 'user8@mydomain.com', 'addressUser8');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('9', 'user9', 'user9@mydomain.com', 'addressUser9');
+INSERT INTO app_user (id, username, useremail, useraddress ) VALUES ('10', 'user10', 'user10@mydomain.com', 'addressUser10');
