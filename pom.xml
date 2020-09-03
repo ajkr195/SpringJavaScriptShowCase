@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.spring.boot.rocks</groupId>
-	<artifactId>SpringBootJavaScriptShowCase</artifactId>
+	<artifactId>SpringJavaScriptShowCase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringBootJavaScriptShowCase</name>
+	<name>SpringJavaScriptShowCase</name>
 	<description>Spring Boot JavaScript AJAX Cookie</description>
 
 	<properties>
