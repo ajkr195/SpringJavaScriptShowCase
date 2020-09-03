@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-		//alert('DOM ready !');
+		alert('DOM ready !');
 		
 		var button = document.getElementById('disableThisButton');
 		button.disabled = true;
