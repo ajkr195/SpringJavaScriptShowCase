@@ -4,76 +4,136 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
-
-   <style>
-        th, td, p, input, h3 {
-            font:15px 'Segoe UI';
-        }
-        table, th, td {
-            border: solid 1px #ddd;
-            border-collapse: collapse;
-            padding: 2px 3px;
-            text-align: center;
-        }
-        th {
-            font-weight:bold;
-        }
-    </style>
-
-
 </head>
 <body>
+	<div class="container">
+		<div class="mt-3"></div>
+		<div class="row">
 
+			<div class=" col-md-6 mt-3 mb-3">
+				<h6>JavaScript Select/Option OnChange</h6>
+				<div class="col-md-6">
+					<br /> <select class="form-select form-select-sm ml-5 mb-2"
+						id="select1">
+						<option selected disabled value="itemsperpage">-- 1
+							Select an Option --</option>
+						<option value="Option1">Option1</option>
+						<option value="Option2">Option2</option>
+						<option value="Option3">Option3</option>
+						<option value="Option4">Option4</option>
+						<option value="Option5">Option5</option>
+					</select>
+				</div>
+				<br />
+				<div class="col-md-6">
+					<select class="form-select form-select-sm ml-5 mb-2" id="select2">
+						<option selected disabled value="itemsperpage">-- 2
+							Select an Option --</option>
+						<option value="Option1">Option1</option>
+						<option value="Option2">Option2</option>
+						<option value="Option3">Option3</option>
+						<option value="Option4">Option4</option>
+						<option value="Option5">Option5</option>
+					</select>
+				</div>
+				<br /> <br /> <br />
+			</div>
 
-	<input type="button" class="ml-5 mb-2" onclick="CreateTableFromJSON()"
-		value="Create Table From JSON" />
-	<p class="ml-5" id="showData"></p>
+			<div class=" col-md-6 mt-3 mb-3">
+				<h6>XMLHttpRequest (Old API)</h6>
+				<button type="button" onclick="loadDoc()">Show JSON Data</button>
+				<div id="showJSONDataHere"></div>
+			</div>
 
-	<br />
-	<br />
+			<div class=" col-md-6 mt-3 mb-3">
+				<h6>AutoLoad Using Fetch (New API)</h6>
+				<button type="button" class="btn btn-sm btn-secondary"
+					id="disableThisButton">No Action Required</button>
+				<table class="table table-striped">
+					<tr class="bg-light">
+						<th>id</th>
+						<th>username</th>
+						<th>useremail</th>
+						<th>useraddress</th>
+					</tr>
 
+					<tbody id="appDataTable1">
 
-	<h1 id="title"></h1>
-	<br />
-	<div id="text"></div>
+					</tbody>
+				</table>
+			</div>
+			<div class=" col-md-6 mt-3 mb-3">
+				<h6>Load On Click Using Fetch (New API)</h6>
+				<button type="button" onclick="drawDataInTable()">Click To
+					Load</button>
+				<table class="table table-striped">
+					<tr class="bg-light">
+						<th>id</th>
+						<th>username</th>
+						<th>useremail</th>
+						<th>useraddress</th>
+					</tr>
 
-	<br />
-	<br />
-	<h1 class="ml-4">Test</h1>
-	<br />
-	<div class="col-md-3">
-		<select class="form-select form-select-sm ml-5 mb-2" id="select1">
-			<option selected disabled value="itemsperpage">-- Size --</option>
-			<option value="Theme1">Theme1</option>
-			<option value="Theme2">Theme2</option>
-			<option value="Theme3">Theme3</option>
-			<option value="Theme4">Theme4</option>
-			<option value="Theme5">Theme5</option>
-		</select>
+					<tbody id="appDataTable2">
+
+					</tbody>
+				</table>
+			</div>
+
+		</div>
 	</div>
-	<br />
-	<div class="col-md-3">
-		<select class="form-select form-select-sm ml-5 mb-2" id="select2">
-			<option selected disabled value="itemsperpage">-- Size --</option>
-			<option value="Theme1">Theme1</option>
-			<option value="Theme2">Theme2</option>
-			<option value="Theme3">Theme3</option>
-			<option value="Theme4">Theme4</option>
-			<option value="Theme5">Theme5</option>
-		</select>
-	</div>
-	
-<h4>The XMLHttpRequest Object</h4>
-<button type="button" onclick="loadDoc()">Change Content</button>
-<div id="showJSONDataHere"></div>
-<!-- <div id="showJSONToHTMLTableHere"></div> -->
-
-<!-- <button type="button" onclick="generateDynamicTable()">Change Content</button> -->
-
-
-
 </body>
 
+<script type="text/javascript">
+fetch("/api/userlist").then(
+		res=>{res.json().then(
+				data=>{
+					
+					//console.log(data);
+					
+					var temp = "";
+					
+					data.forEach((u)=>{
+						
+						temp += "<tr>";
+						temp += "<td>" + u.id+"</td>";
+						temp += "<td>" + u.username+"</td>";
+						temp += "<td>" + u.useremail+"</td>";
+						temp += "<td>" + u.useraddress+"</td></tr>";
+						
+					})
+					document.getElementById("appDataTable1").innerHTML = temp;
+				})
+		}
+	)
+</script>
+
+<script type="text/javascript">
+function drawDataInTable(){
+fetch("/api/userlist").then(
+		res=>{ res.json().then(
+				
+				data=>{
+					//console.log(data);
+
+					var trtdVar = "";
+					
+					data.forEach((u)=>{
+						
+						trtdVar += "<tr>";
+						trtdVar += "<td>" + u.id+"</td>";
+						trtdVar += "<td>" + u.username+"</td>";
+						trtdVar += "<td>" + u.useremail+"</td>";
+						trtdVar += "<td>" + u.useraddress+"</td></tr>";
+					})
+					
+					document.getElementById("appDataTable2").innerHTML = trtdVar;
+					
+				})
+		}
+	)
+}
+</script>
 
 <script>
 function loadDoc() {
@@ -86,12 +146,15 @@ function loadDoc() {
       
       alert(myBooks);
       
+      
+      
     }
   };
   xhttp.open("GET", "/api/userlist", true);
   xhttp.send();
 }
 </script>
+
 
 <script type="text/javascript">
 
@@ -105,17 +168,19 @@ xhr.onload = function() {
 
 </script>
 <script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
 		//alert('DOM ready !');
+		
+		var button = document.getElementById('disableThisButton');
+		button.disabled = true;
+		
 		checkCookie();
+		
 		setCookie
 		function setCookie(name, value, daysToLive) {
-			// Encode value in order to escape semicolons, commas, and whitespace
 			var cookie = name + "=" + encodeURIComponent(value);
 
 			if (typeof daysToLive === "number") {
-				/* Sets the max-age attribute so that the cookie expires
-				after the specified number of days */
 				cookie += "; max-age=" + (daysToLive * 24 * 60 * 60);
 
 				document.cookie = cookie;
@@ -123,22 +188,13 @@ xhr.onload = function() {
 		}
 
 		function getCookie(name) {
-			// Split cookie string and get all individual name=value pairs in an array
 			var cookieArr = document.cookie.split(";");
-
-			// Loop through the array elements
 			for (var i = 0; i < cookieArr.length; i++) {
 				var cookiePair = cookieArr[i].split("=");
-
-				/* Removing whitespace at the beginning of the cookie name
-				and compare it with the given string */
 				if (name == cookiePair[0].trim()) {
-					// Decode the cookie value and return
 					return decodeURIComponent(cookiePair[1]);
 				}
 			}
-
-			// Return null if not found
 			return null;
 		}
 
@@ -157,111 +213,31 @@ xhr.onload = function() {
 			}
 		}
 
-	});
+});
 </script>
 <script type="text/javascript">
-	document.addEventListener('input', function(event) {
-
-		// Only run on our select menu
+document.addEventListener('input', function(event) {
 		if (event.target.id !== 'select1')
 			return;
 
-		// The selected value
+		// Selected value
 		alert("select1 value :: " + event.target.value);
-		console.log(event.target.value);
+		//console.log(event.target.value);
 
-		// The selected option element
+		// Selected option's Index
 		alert(event.target.selectedIndex);
 		console.log(event.target.options[event.target.selectedIndex]);
 
-	}, false);
+}, false);
 </script>
 
 <script type="text/javascript">
 	document.getElementById("select2").onchange = function() {
 		alert("select2 value :: " + this.value);
-		console.log("Changed to ::" + event.target.value);
+		//console.log("Changed to ::" + event.target.value);
 		// console.log(event.target.value);
 	}
 </script>
 
-<script>
-// 	var xhr = new XMLHttpRequest();
-
-// 	xhr.onreadystatechange = function() {
-// 		if (xhr.readyState == XMLHttpRequest.DONE) {
-// 			if (xhr.status == 200) {
-// 				document.body.innerText = 'Response: ' + xhr.responseText;
-// 			} else {
-// 				document.body.innerText = 'Error: ' + xhr.status;
-// 			}
-// 		}
-// 	};
-
-	//xhr.open('GET', '/api/userlist', true);
-	//xhr.open('GET', '/get/echo?text=hello', true);
-	//xhr.send(null);
-</script>
-
-<script>
-	function CreateTableFromJSON() {
-		var myBooks = [ {
-			"ID" : "1",
-			"Name" : "Test1",
-			"Category" : "Category1",
-			"Price" : "123"
-		}, {
-			"ID" : "2",
-			"Name" : "Test2",
-			"Category" : "Category2",
-			"Price" : "1234"
-		}, {
-			"ID" : "3",
-			"Name" : "Test3",
-			"Category" : "Category3",
-			"Price" : "12345"
-		} ]
-
-		// EXTRACT VALUE FOR HTML HEADER. 
-		// ('Book ID', 'Book Name', 'Category' and 'Price')
-		var col = [];
-		for (var i = 0; i < myBooks.length; i++) {
-			for ( var key in myBooks[i]) {
-				if (col.indexOf(key) === -1) {
-					col.push(key);
-				}
-			}
-		}
-
-		// CREATE DYNAMIC TABLE.
-		var table = document.createElement("table");
-
-		// CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-
-		var tr = table.insertRow(-1); // TABLE ROW.
-
-		for (var i = 0; i < col.length; i++) {
-			var th = document.createElement("th"); // TABLE HEADER.
-			th.innerHTML = col[i];
-			tr.appendChild(th);
-		}
-
-		// ADD JSON DATA TO THE TABLE AS ROWS.
-		for (var i = 0; i < myBooks.length; i++) {
-
-			tr = table.insertRow(-1);
-
-			for (var j = 0; j < col.length; j++) {
-				var tabCell = tr.insertCell(-1);
-				tabCell.innerHTML = myBooks[i][col[j]];
-			}
-		}
-
-		// FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-		var divContainer = document.getElementById("showData");
-		divContainer.innerHTML = "";
-		divContainer.appendChild(table);
-	}
-</script>
 
 </html>
