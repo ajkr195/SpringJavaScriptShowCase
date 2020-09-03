@@ -17,9 +17,9 @@
 						id="select1">
 						<option selected disabled value="itemsperpage">-- 1
 							Select an Option --</option>
-						<option value="Option1">Option1</option>
-						<option value="Option2">Option2</option>
-						<option value="Option3">Option3</option>
+						<option value="Value1">Option1</option>
+						<option value="Value2">Option2</option>
+						<option value="Value3">Option3</option>
 					</select>
 				</div>
 				<br />
@@ -27,9 +27,9 @@
 					<select class="form-select form-select-sm ml-5 mb-2" id="select2">
 						<option selected disabled value="itemsperpage">-- 2
 							Select an Option --</option>
-						<option value="Option1">Option1</option>
-						<option value="Option2">Option2</option>
-						<option value="Option3">Option3</option>
+						<option value="Value1">Option1</option>
+						<option value="Value2">Option2</option>
+						<option value="Value3">Option3</option>
 					</select>
 				</div>
 				<br /> <br /> <br />
@@ -37,14 +37,14 @@
 
 			<div class=" col-md-6 mt-3 mb-3">
 				<h6>XMLHttpRequest (Old API)</h6>
-				<button type="button" onclick="loadAndShowJSON()">Show JSON Data</button>
+				<button type="button" onclick="loadAndShowJSON()">Show JSON
+					Data</button>
 				<div id="showJSONDataHere"></div>
 			</div>
 
 			<div class=" col-md-6 mt-3 mb-3">
 				<h6>AutoLoad Using Fetch (New API)</h6>
-				<button type="button" class="btn btn-sm btn-secondary"
-					id="disableThisButton">No Action Required</button>
+				<button type="button" id="disableThisButton">No Action Required</button>
 				<table class="table table-striped">
 					<tr class="bg-light">
 						<th>id</th>
@@ -62,6 +62,7 @@
 				<h6>Load On Click Using Fetch (New API)</h6>
 				<button type="button" onclick="drawDataInTable()">Click To
 					Load</button>
+
 				<table class="table table-striped">
 					<tr class="bg-light">
 						<th>id</th>
@@ -75,7 +76,30 @@
 					</tbody>
 				</table>
 			</div>
+			<div class=" col-md-6 mt-3 mb-3">
+				<button type="button" onclick="userIdBasedDetails()">Populate/Get User Id(s)</button>
+				<select class="form-select form-select-sm mt-2 mb-2" id="select3"></select>
+				<table class="table table-borderless">
+					<tr class="bg-light">
+						<th>id</th>
+						<th>username</th>
+						<th>useremail</th>
+						<th>useraddress</th>
+					</tr>
 
+					<tbody id="dynaDataTable">
+
+					</tbody>
+				</table>
+			</div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
 		</div>
 	</div>
 </body>
@@ -87,6 +111,7 @@
 <script type="text/javascript" th:src="@{/js/autoload.js}"></script>
 <script type="text/javascript" th:src="@{/js/onbuttonclickload.js}"></script>
 <script type="text/javascript" th:src="@{/js/showjson.js}"></script>
+<script type="text/javascript" th:src="@{/js/dynamicdropdown.js}"></script>
 
 
 </html>
