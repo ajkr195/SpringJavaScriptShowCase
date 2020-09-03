@@ -3,11 +3,11 @@ document.addEventListener('input', function(event) {
 			return;
 
 		// Selected value
-		alert("select1 value :: " + event.target.value);
+		alert("Select1 Value :: " + event.target.value);
 		//console.log(event.target.value);
 
 		// Selected option's Index
-		alert(event.target.selectedIndex);
+		alert("Select1 Index :: " + event.target.selectedIndex);
 		console.log(event.target.options[event.target.selectedIndex]);
 
 }, false);
