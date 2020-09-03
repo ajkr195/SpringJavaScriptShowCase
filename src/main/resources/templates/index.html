@@ -20,8 +20,6 @@
 						<option value="Option1">Option1</option>
 						<option value="Option2">Option2</option>
 						<option value="Option3">Option3</option>
-						<option value="Option4">Option4</option>
-						<option value="Option5">Option5</option>
 					</select>
 				</div>
 				<br />
@@ -32,8 +30,6 @@
 						<option value="Option1">Option1</option>
 						<option value="Option2">Option2</option>
 						<option value="Option3">Option3</option>
-						<option value="Option4">Option4</option>
-						<option value="Option5">Option5</option>
 					</select>
 				</div>
 				<br /> <br /> <br />
@@ -41,7 +37,7 @@
 
 			<div class=" col-md-6 mt-3 mb-3">
 				<h6>XMLHttpRequest (Old API)</h6>
-				<button type="button" onclick="loadDoc()">Show JSON Data</button>
+				<button type="button" onclick="loadAndShowJSON()">Show JSON Data</button>
 				<div id="showJSONDataHere"></div>
 			</div>
 
@@ -84,160 +80,13 @@
 	</div>
 </body>
 
-<script type="text/javascript">
-fetch("/api/userlist").then(
-		res=>{res.json().then(
-				data=>{
-					
-					//console.log(data);
-					
-					var temp = "";
-					
-					data.forEach((u)=>{
-						
-						temp += "<tr>";
-						temp += "<td>" + u.id+"</td>";
-						temp += "<td>" + u.username+"</td>";
-						temp += "<td>" + u.useremail+"</td>";
-						temp += "<td>" + u.useraddress+"</td></tr>";
-						
-					})
-					document.getElementById("appDataTable1").innerHTML = temp;
-				})
-		}
-	)
-</script>
-
-<script type="text/javascript">
-function drawDataInTable(){
-fetch("/api/userlist").then(
-		res=>{ res.json().then(
-				
-				data=>{
-					//console.log(data);
-
-					var trtdVar = "";
-					
-					data.forEach((u)=>{
-						
-						trtdVar += "<tr>";
-						trtdVar += "<td>" + u.id+"</td>";
-						trtdVar += "<td>" + u.username+"</td>";
-						trtdVar += "<td>" + u.useremail+"</td>";
-						trtdVar += "<td>" + u.useraddress+"</td></tr>";
-					})
-					
-					document.getElementById("appDataTable2").innerHTML = trtdVar;
-					
-				})
-		}
-	)
-}
-</script>
-
-<script>
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showJSONDataHere").innerHTML =
-      this.responseText;
-      var myBooks = this.responseText;
-      
-      alert(myBooks);
-      
-      
-      
-    }
-  };
-  xhttp.open("GET", "/api/userlist", true);
-  xhttp.send();
-}
-</script>
-
-
-<script type="text/javascript">
-
-let xhr = new XMLHttpRequest();
-xhr.open('get', '/api/userlist');
-xhr.send();
-
-xhr.onload = function() {
-    alert(xhr.response);
-};
-
-</script>
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-		//alert('DOM ready !');
-		
-		var button = document.getElementById('disableThisButton');
-		button.disabled = true;
-		
-		checkCookie();
-		
-		setCookie
-		function setCookie(name, value, daysToLive) {
-			var cookie = name + "=" + encodeURIComponent(value);
-
-			if (typeof daysToLive === "number") {
-				cookie += "; max-age=" + (daysToLive * 24 * 60 * 60);
-
-				document.cookie = cookie;
-			}
-		}
-
-		function getCookie(name) {
-			var cookieArr = document.cookie.split(";");
-			for (var i = 0; i < cookieArr.length; i++) {
-				var cookiePair = cookieArr[i].split("=");
-				if (name == cookiePair[0].trim()) {
-					return decodeURIComponent(cookiePair[1]);
-				}
-			}
-			return null;
-		}
-
-		function checkCookie() {
-			// Get cookie using our custom function
-			var firstName = getCookie("firstName");
-
-			if (firstName != null) {
-				alert("Welcome again, " + firstName);
-			} else {
-				firstName = prompt("Please enter your first name:");
-				if (firstName != "" && firstName != null) {
-					// Set cookie using our custom function
-					setCookie("firstName", firstName, 1);
-				}
-			}
-		}
-
-});
-</script>
-<script type="text/javascript">
-document.addEventListener('input', function(event) {
-		if (event.target.id !== 'select1')
-			return;
-
-		// Selected value
-		alert("select1 value :: " + event.target.value);
-		//console.log(event.target.value);
-
-		// Selected option's Index
-		alert(event.target.selectedIndex);
-		console.log(event.target.options[event.target.selectedIndex]);
-
-}, false);
-</script>
-
-<script type="text/javascript">
-	document.getElementById("select2").onchange = function() {
-		alert("select2 value :: " + this.value);
-		//console.log("Changed to ::" + event.target.value);
-		// console.log(event.target.value);
-	}
-</script>
+<script type="text/javascript" th:src="@{/js/getsetcookie.js}"></script>
+<script type="text/javascript" th:src="@{/js/onloadshowjson.js}"></script>
+<script type="text/javascript" th:src="@{/js/select1.js}"></script>
+<script type="text/javascript" th:src="@{/js/select2.js}"></script>
+<script type="text/javascript" th:src="@{/js/autoload.js}"></script>
+<script type="text/javascript" th:src="@{/js/onbuttonclickload.js}"></script>
+<script type="text/javascript" th:src="@{/js/showjson.js}"></script>
 
 
 </html>
