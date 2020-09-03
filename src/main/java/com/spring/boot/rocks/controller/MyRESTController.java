@@ -1,4 +1,4 @@
-package com.spring.boot.rocks;
+package com.spring.boot.rocks.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.spring.boot.rocks.model.UserEntity;
+import com.spring.boot.rocks.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api")

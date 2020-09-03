@@ -1,4 +1,4 @@
-package com.spring.boot.rocks;
+package com.spring.boot.rocks.controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
