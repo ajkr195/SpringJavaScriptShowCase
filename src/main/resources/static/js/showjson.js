@@ -8,8 +8,6 @@ function loadAndShowJSON() {
       
       alert(myBooks);
       
-      
-      
     }
   };
   xhttp.open("GET", "/api/userlist", true);
