@@ -4,13 +4,30 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+
+   <style>
+        th, td, p, input, h3 {
+            font:15px 'Segoe UI';
+        }
+        table, th, td {
+            border: solid 1px #ddd;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        th {
+            font-weight:bold;
+        }
+    </style>
+
+
 </head>
 <body>
 
 
 	<input type="button" class="ml-5 mb-2" onclick="CreateTableFromJSON()"
 		value="Create Table From JSON" />
-	<p class="table table-bordered table-striped" id="showData"></p>
+	<p class="ml-5" id="showData"></p>
 
 	<br />
 	<br />
@@ -45,12 +62,36 @@
 			<option value="Theme5">Theme5</option>
 		</select>
 	</div>
+	
+<h4>The XMLHttpRequest Object</h4>
+<button type="button" onclick="loadDoc()">Change Content</button>
+<div id="showJSONDataHere"></div>
+<!-- <div id="showJSONToHTMLTableHere"></div> -->
+
+<!-- <button type="button" onclick="generateDynamicTable()">Change Content</button> -->
+
 
 
 </body>
 
 
-
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("showJSONDataHere").innerHTML =
+      this.responseText;
+      var myBooks = this.responseText;
+      
+      alert(myBooks);
+      
+    }
+  };
+  xhttp.open("GET", "/api/userlist", true);
+  xhttp.send();
+}
+</script>
 
 <script type="text/javascript">
 
@@ -65,7 +106,7 @@ xhr.onload = function() {
 </script>
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", function() {
-		alert('DOM ready !');
+		//alert('DOM ready !');
 		checkCookie();
 		setCookie
 		function setCookie(name, value, daysToLive) {
