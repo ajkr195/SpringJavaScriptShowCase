@@ -13,5 +13,9 @@ SpringBoot JavaScript Show-case
 <li> On page load, show html table from api json URL </li>
 <li> On Button Click load load api json Data into HTML table </li>
 <li> Get id of the users </li>
+<li> Confirmation dialog before delete </li>
+<li> Modal Dialog </li>
+<li> Set cookie value </li>
+<li> Read cookie value </li>
 
 </ul>
