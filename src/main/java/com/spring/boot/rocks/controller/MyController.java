@@ -11,15 +11,17 @@ public class MyController {
 
 	@GetMapping("/")
 	public static String homePage(Model model) {
-
 		return "index";
-
 	}
+	
 	@GetMapping("/modal")
 	public static String modalPage(Model model) {
-
 		return "modal";
-
+	}
+	
+	@GetMapping("/crud")
+	public static String crudPage(Model model) {
+		return "crud";
 	}
 
 }
