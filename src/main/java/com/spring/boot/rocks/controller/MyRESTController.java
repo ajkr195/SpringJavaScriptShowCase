@@ -28,4 +28,10 @@ public class MyRESTController {
 	public Optional<UserEntity> getUserDetails(@PathVariable Long id) {
 		return userRepository.findById(id);
 	}
+	
+	@GetMapping(path = "/delete/user/{id}")
+	public String deleteUser(@PathVariable Long id) {
+		userRepository.deleteById(id);
+		return  "OK!";
+	}
 }
