@@ -23,5 +23,9 @@ public class MyController {
 	public static String crudPage(Model model) {
 		return "crud";
 	}
+	@GetMapping("/crud2")
+	public static String crud2Page(Model model) {
+		return "crud2";
+	}
 
 }
