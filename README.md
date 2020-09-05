@@ -33,9 +33,9 @@ SpringBoot JavaScript Show-case
 
 <h4> ScreenShot 3</h4>
 
-![springbootrocks](https://github.com/ajkr195/SpringJavaScriptShowCase/blob/master/screenshots/2.png)
+![springbootrocks](https://github.com/ajkr195/SpringJavaScriptShowCase/blob/master/screenshots/3.png)
 
 <h4> ScreenShot 4</h4>
 
-![springbootrocks](https://github.com/ajkr195/SpringJavaScriptShowCase/blob/master/screenshots/2.png)
+![springbootrocks](https://github.com/ajkr195/SpringJavaScriptShowCase/blob/master/screenshots/4.png)
 
