@@ -6,17 +6,12 @@ var counter = 0;
 function addUser(){
   var inputdata = document.getElementById('data').value;
   var html =  '<div class="row" id="data'+counter+'" style="margin-bottom:15px;">'+
-    '<div class="col-md-6 col-sm-12 col-xs-12">'+
+    '<div class="col-md-8 col-sm-12 col-xs-12">'+
       '<input type="text" class="form-control" value="'+inputdata+'" disabled>'+
     '</div>'+
-    '<div class="col-md-2 col-sm-4 col-xs-4">'+
-      '<button type="button" class="btn btn-success" onclick="edit(this.id)" id="edit'+counter+'">Edit</button>'+
-    '</div>'+
-
-    '<div class="col-md-2 col-sm-4 col-xs-4">'+
-      '<button type="button" class="btn btn-success" onclick="update(this.id)" id="update'+counter+'">Update</button>'+
-    '</div>'+
-    '<div class="col-md-2 col-sm-4 col-xs-4">'+
+    '<div class="col-md-4">'+
+      '<button type="button" class="btn btn-warning mr-2" onclick="edit(this.id)" id="edit'+counter+'">Edit</button>'+
+      '<button type="button" class="btn btn-primary mr-2" onclick="update(this.id)" id="update'+counter+'">Update</button>'+
       '<button type="button" class="btn btn-danger" onclick="remove(this.id)" id="delete'+counter+'">Delete</button>'+
     '</div>'+
   '</div>';
