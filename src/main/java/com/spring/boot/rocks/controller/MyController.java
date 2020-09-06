@@ -27,5 +27,10 @@ public class MyController {
 	public static String crud2Page(Model model) {
 		return "crud2";
 	}
+	
+	@GetMapping("/table")
+	public static String tablePage(Model model) {
+		return "table";
+	}
 
 }

@@ -1,8 +1,24 @@
 fetch("/api/userlist").then(
 		res=>{res.json().then(
 				data=>{
-					
+					//console.log('data');
 					//console.log(data);
+					
+					var parsedStringiFy = JSON.stringify(data);
+					
+					//console.log('parsedStringiFy');
+					alert ('parsedStringiFy');
+					alert (parsedStringiFy);
+					
+					var parsed = JSON.parse(parsedStringiFy);
+					
+					//alert ( 'JSON Data is :: ' + parsed);
+					
+					
+					//for (let key in parsed) {
+  					//	console.log("KEY: " + key);
+  					//	console.log("VALUE: " + parsed[key]);
+					//}
 					
 					var temp = "";
 					
