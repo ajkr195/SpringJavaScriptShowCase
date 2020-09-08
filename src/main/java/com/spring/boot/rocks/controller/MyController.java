@@ -38,5 +38,10 @@ public class MyController {
 		return "jsonToTable";
 	}
 	
+	@GetMapping("/jsontopresentable")
+	public static String jsontopresentable(Model model) {
+		return "jsonToPresenTableView";
+	}
+	
 
 }
