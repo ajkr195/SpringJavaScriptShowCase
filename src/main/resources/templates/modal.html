@@ -9,39 +9,54 @@
 </head>
 <body>
 	<div class="container">
-	<div class="mt-3 row">
-		<div class="col-md-3"><a href="/" th:href="@{/}">Home Page</a></div>
-		<div class="col-md-3"><a href="/modal" th:href="@{/modal}">Modal Page</a></div>
-		<div class="col-md-3"><a href="/crud" th:href="@{/crud}">CRUD Example</a></div>
-		<div class="col-md-3"><a href="/crud2" th:href="@{/crud2}">CRUD 2 Example</a></div>
-	</div>
-		
+		<div class="mt-3 row">
+			<div class="col-md-3">
+				<a href="/" th:href="@{/}">Home Page</a>
+			</div>
+			<div class="col-md-3">
+				<a href="/modal" th:href="@{/modal}">Modal Page</a>
+			</div>
+			<div class="col-md-3">
+				<a href="/crud" th:href="@{/crud}">CRUD Example</a>
+			</div>
+			<div class="col-md-3">
+				<a href="/crud2" th:href="@{/crud2}">CRUD 2 Example</a>
+			</div>
+		</div>
+		<div class="mt-3 row">
+			<div class="col-md-3">
+				<a href="/jsontotable" th:href="@{/jsontotable}">JsonToTable</a>
+			</div>
+
+		</div>
 		<h3 class="mt-3 mb-3">Pure/Vanilla JavaScript Modal</h3>
 
 		<h4>Sizes</h4>
 		<p>
-			<button data-target="simpleModal_1" data-toggle="modal" class="btn btn-sm btn-danger">A
-				Basic Modal</button>
-			<button data-target="simpleModal_2" data-toggle="modal" class="btn btn-sm btn-primary">A
-				Large Modal</button>
-			<button data-target="simpleModal_3" data-toggle="modal" class="btn btn-sm btn-success">A
-				Small Modal</button>
+			<button data-target="simpleModal_1" data-toggle="modal"
+				class="btn btn-sm btn-danger">A Basic Modal</button>
+			<button data-target="simpleModal_2" data-toggle="modal"
+				class="btn btn-sm btn-primary">A Large Modal</button>
+			<button data-target="simpleModal_3" data-toggle="modal"
+				class="btn btn-sm btn-success">A Small Modal</button>
 		</p>
 
 		<h4>Trigger</h4>
 		<p>
-			<button data-target="simpleModal_4" data-toggle="modal" class="btn btn-sm btn-danger">Trigger
-				with a Button</button>
+			<button data-target="simpleModal_4" data-toggle="modal"
+				class="btn btn-sm btn-danger">Trigger with a Button</button>
 			<a href="#" data-target="simpleModal_5" data-toggle="modal">Trigger
 				with a Link</a>
 		</p>
 
 		<h4>Dismiss</h4>
 		<p>
-			<button data-target="simpleModal_6" data-toggle="modal" class="btn btn-sm btn-primary">Dismiss
-				modal with [&times;] button</button>
-			<button data-target="simpleModal_7" data-toggle="modal" class="btn btn-sm btn-success">Dismiss
-				modal with a custom button</button>
+			<button data-target="simpleModal_6" data-toggle="modal"
+				class="btn btn-sm btn-primary">Dismiss modal with [&times;]
+				button</button>
+			<button data-target="simpleModal_7" data-toggle="modal"
+				class="btn btn-sm btn-success">Dismiss modal with a custom
+				button</button>
 		</p>
 
 		<div id="simpleModal_1" class="modal">

@@ -32,5 +32,11 @@ public class MyController {
 	public static String tablePage(Model model) {
 		return "table";
 	}
+	
+	@GetMapping("/jsontotable")
+	public static String jsontotable(Model model) {
+		return "jsonToTable";
+	}
+	
 
 }

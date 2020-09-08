@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="mt-3 row">
+			<div class="col-md-3">
+				<a href="/" th:href="@{/}">Home Page</a>
+			</div>
+			<div class="col-md-3">
+				<a href="/modal" th:href="@{/modal}">Modal Page</a>
+			</div>
+			<div class="col-md-3">
+				<a href="/crud" th:href="@{/crud}">CRUD Example</a>
+			</div>
+			<div class="col-md-3">
+				<a href="/crud2" th:href="@{/crud2}">CRUD 2 Example</a>
+			</div>
+
+		</div>
+		<div class="mt-3 row">
+			<div class="col-md-3">
+				<a href="/jsontotable" th:href="@{/jsontotable}">JsonToTable</a>
+			</div>
+
+		</div>
+
+		<h6>Load On Click Using Fetch (New API)</h6>
+		<button type="button" onclick="drawHtmlTable()">Click To Load</button>
+		<div id="drawHtmlTableHere"></div>
+
+
+		<button id="menu-button">Hide Menu</button>
+		<nav id="menu">
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+			</ul>
+		</nav>
+
+	</div>
+</body>
+
+<script type="text/javascript" th:src="@{/js/jsontotable.js}"></script>
+<script type="text/javascript">
+	// Script to hide/show menu
+	var button = document.querySelector('#menu-button');
+	var menu = document.querySelector('#menu');
+	button.addEventListener('click', function(event) {
+		if (menu.style.display == "") {
+			menu.style.display = "none";
+			button.innerHTML = "Show Menu";
+		} else {
+			menu.style.display = "";
+			button.innerHTML = "Hide Menu";
+		}
+	});
+</script>
+
+</html>
