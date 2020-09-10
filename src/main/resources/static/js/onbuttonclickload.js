@@ -24,6 +24,18 @@ fetch("/api/userlist").then(
 }
 
 function deleteUserById(id) {
+
+var url="/api/deleteuserbyid/" + id;
+alert('Hello, you passed ID :: ' + id);
+
+if (confirm("Are you sure?")) 
+ fetch(url , {
+           method: 'DELETE'
+       })
+       drawDataInTable();
+}
+
+function deleteUserById_OldAlternateMethod(id) {
 alert('Hello, you passed ID :: ' + id);
 
 if (!confirm("Are you sure?")) 
