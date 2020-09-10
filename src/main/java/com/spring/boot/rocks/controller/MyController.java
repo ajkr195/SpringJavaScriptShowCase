@@ -11,6 +11,11 @@ public class MyController {
 
 	@GetMapping("/")
 	public static String homePage(Model model) {
+		return "home";
+	}
+	
+	@GetMapping("/index")
+	public static String indexPage(Model model) {
 		return "index";
 	}
 	

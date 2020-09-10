@@ -11,7 +11,7 @@ function addUser(){
     '</div>'+
     '<div class="col-md-4">'+
       '<button type="button" class="btn btn-warning mr-2" onclick="edit(this.id)" id="edit'+counter+'">Edit</button>'+
-      '<button type="button" class="btn btn-primary mr-2" onclick="update(this.id)" id="update'+counter+'">Update</button>'+
+      '<button type="button" class="btn btn-primary mr-2" onclick="update(this.id)" id="update'+counter+'">Update/Save</button>'+
       '<button type="button" class="btn btn-danger" onclick="remove(this.id)" id="delete'+counter+'">Delete</button>'+
     '</div>'+
   '</div>';
